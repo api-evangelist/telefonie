@@ -4,11 +4,11 @@ description: >-
 url: https://www.telefonie.example.com
 type: Index
 tags:
+  - Messaging
+  - SMS
   - Telecommunications
   - Telephony
   - Voice
-  - SMS
-  - Messaging
 created: '2024-01-20'
 modified: '2026-03-16'
 apis:
@@ -19,8 +19,8 @@ apis:
     humanURL: https://www.telefonie.example.com/voice
     baseURL: https://api.telefonie.example.com/v1/voice
     tags:
-      - Voice
       - Calls
+      - Voice
       - VOIP
     properties:
       - type: Documentation
@@ -41,8 +41,8 @@ apis:
     humanURL: https://www.telefonie.example.com/sms
     baseURL: https://api.telefonie.example.com/v1/sms
     tags:
-      - SMS
       - Messaging
+      - SMS
       - Text
     properties:
       - type: Documentation
@@ -63,9 +63,9 @@ apis:
     humanURL: https://www.telefonie.example.com/numbers
     baseURL: https://api.telefonie.example.com/v1/numbers
     tags:
-      - Phone Numbers
       - DID
       - Number Provisioning
+      - Phone Numbers
     properties:
       - type: Documentation
         url: https://docs.telefonie.example.com/numbers
@@ -81,8 +81,8 @@ apis:
     humanURL: https://www.telefonie.example.com/recording
     baseURL: https://api.telefonie.example.com/v1/recordings
     tags:
-      - Recording
       - Compliance
+      - Recording
       - Storage
     properties:
       - type: Documentation
