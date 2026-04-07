@@ -1,114 +1,119 @@
 name: Telefonie
-description: Telecommunications and telephony services API
+description: >-
+  Telecommunications and telephony services API.
 url: https://www.telefonie.example.com
 type: Index
 tags:
-- Telecommunications
-- Telephony
-- Voice
-- SMS
-- Messaging
+  - Telecommunications
+  - Telephony
+  - Voice
+  - SMS
+  - Messaging
 created: '2024-01-20'
 modified: '2026-03-16'
 apis:
-- name: Voice API
-  description: Make and receive phone calls programmatically
-  image: https://www.telefonie.example.com/images/voice-api.png
-  humanURL: https://www.telefonie.example.com/voice
-  baseURL: https://api.telefonie.example.com/v1/voice
-  tags:
-  - Voice
-  - Calls
-  - VOIP
-  properties:
-  - type: Documentation
-    url: https://docs.telefonie.example.com/voice
-  - type: OpenAPI
-    url: https://api.telefonie.example.com/specs/voice-openapi.json
-  - type: Swagger
-    url: https://api.telefonie.example.com/specs/voice-swagger.json
-  contact:
-  - type: Support
-    url: https://www.telefonie.example.com/support
-  - type: Email
-    url: mailto:support@telefonie.example.com
-- name: SMS API
-  description: Send and receive SMS messages
-  image: https://www.telefonie.example.com/images/sms-api.png
-  humanURL: https://www.telefonie.example.com/sms
-  baseURL: https://api.telefonie.example.com/v1/sms
-  tags:
-  - SMS
-  - Messaging
-  - Text
-  properties:
-  - type: Documentation
-    url: https://docs.telefonie.example.com/sms
-  - type: OpenAPI
-    url: https://api.telefonie.example.com/specs/sms-openapi.json
-  - type: Pricing
-    url: https://www.telefonie.example.com/pricing/sms
-  contact:
-  - type: Support
-    url: https://www.telefonie.example.com/support
-  - type: Email
-    url: mailto:support@telefonie.example.com
-- name: Number Management API
-  description: Purchase, configure, and manage phone numbers
-  image: https://www.telefonie.example.com/images/numbers-api.png
-  humanURL: https://www.telefonie.example.com/numbers
-  baseURL: https://api.telefonie.example.com/v1/numbers
-  tags:
-  - Phone Numbers
-  - DID
-  - Number Provisioning
-  properties:
-  - type: Documentation
-    url: https://docs.telefonie.example.com/numbers
-  - type: OpenAPI
-    url: https://api.telefonie.example.com/specs/numbers-openapi.json
-  contact:
-  - type: Support
-    url: https://www.telefonie.example.com/support
-- name: Call Recording API
-  description: Record and retrieve call recordings
-  image: https://www.telefonie.example.com/images/recording-api.png
-  humanURL: https://www.telefonie.example.com/recording
-  baseURL: https://api.telefonie.example.com/v1/recordings
-  tags:
-  - Recording
-  - Compliance
-  - Storage
-  properties:
-  - type: Documentation
-    url: https://docs.telefonie.example.com/recording
-  - type: OpenAPI
-    url: https://api.telefonie.example.com/specs/recording-openapi.json
-  contact:
-  - type: Support
-    url: https://www.telefonie.example.com/support
+  - name: Voice API
+    description: >-
+      Make and receive phone calls programmatically.
+    image: https://www.telefonie.example.com/images/voice-api.png
+    humanURL: https://www.telefonie.example.com/voice
+    baseURL: https://api.telefonie.example.com/v1/voice
+    tags:
+      - Voice
+      - Calls
+      - VOIP
+    properties:
+      - type: Documentation
+        url: https://docs.telefonie.example.com/voice
+      - type: OpenAPI
+        url: https://api.telefonie.example.com/specs/voice-openapi.json
+      - type: Swagger
+        url: https://api.telefonie.example.com/specs/voice-swagger.json
+    contact:
+      - type: Support
+        url: https://www.telefonie.example.com/support
+      - type: Email
+        url: mailto:support@telefonie.example.com
+  - name: SMS API
+    description: >-
+      Send and receive SMS messages.
+    image: https://www.telefonie.example.com/images/sms-api.png
+    humanURL: https://www.telefonie.example.com/sms
+    baseURL: https://api.telefonie.example.com/v1/sms
+    tags:
+      - SMS
+      - Messaging
+      - Text
+    properties:
+      - type: Documentation
+        url: https://docs.telefonie.example.com/sms
+      - type: OpenAPI
+        url: https://api.telefonie.example.com/specs/sms-openapi.json
+      - type: Pricing
+        url: https://www.telefonie.example.com/pricing/sms
+    contact:
+      - type: Support
+        url: https://www.telefonie.example.com/support
+      - type: Email
+        url: mailto:support@telefonie.example.com
+  - name: Number Management API
+    description: >-
+      Purchase, configure, and manage phone numbers.
+    image: https://www.telefonie.example.com/images/numbers-api.png
+    humanURL: https://www.telefonie.example.com/numbers
+    baseURL: https://api.telefonie.example.com/v1/numbers
+    tags:
+      - Phone Numbers
+      - DID
+      - Number Provisioning
+    properties:
+      - type: Documentation
+        url: https://docs.telefonie.example.com/numbers
+      - type: OpenAPI
+        url: https://api.telefonie.example.com/specs/numbers-openapi.json
+    contact:
+      - type: Support
+        url: https://www.telefonie.example.com/support
+  - name: Call Recording API
+    description: >-
+      Record and retrieve call recordings.
+    image: https://www.telefonie.example.com/images/recording-api.png
+    humanURL: https://www.telefonie.example.com/recording
+    baseURL: https://api.telefonie.example.com/v1/recordings
+    tags:
+      - Recording
+      - Compliance
+      - Storage
+    properties:
+      - type: Documentation
+        url: https://docs.telefonie.example.com/recording
+      - type: OpenAPI
+        url: https://api.telefonie.example.com/specs/recording-openapi.json
+    contact:
+      - type: Support
+        url: https://www.telefonie.example.com/support
 common:
-- type: Authentication
-  url: https://docs.telefonie.example.com/authentication
-- type: Rate Limits
-  url: https://docs.telefonie.example.com/rate-limits
-- type: SDKs
-  url: https://www.telefonie.example.com/sdks
-- type: Status
-  url: https://status.telefonie.example.com
-- type: Terms of Service
-  url: https://www.telefonie.example.com/terms
-- type: Privacy Policy
-  url: https://www.telefonie.example.com/privacy
-- type: Sign Up
-  url: https://www.telefonie.example.com/signup
-- type: Login
-  url: https://www.telefonie.example.com/login
-- type: Blog
-  url: https://blog.telefonie.example.com
-- type: Pricing
-  url: https://www.telefonie.example.com/pricing
+  - type: Authentication
+    url: https://docs.telefonie.example.com/authentication
+  - type: Rate Limits
+    url: https://docs.telefonie.example.com/rate-limits
+  - type: SDKs
+    url: https://www.telefonie.example.com/sdks
+  - type: Status
+    url: https://status.telefonie.example.com
+  - type: Terms of Service
+    url: https://www.telefonie.example.com/terms
+  - type: Privacy Policy
+    url: https://www.telefonie.example.com/privacy
+  - type: Sign Up
+    url: https://www.telefonie.example.com/signup
+  - type: Login
+    url: https://www.telefonie.example.com/login
+  - type: Blog
+    url: https://blog.telefonie.example.com
+  - type: Pricing
+    url: https://www.telefonie.example.com/pricing
 maintainers:
-- name: Telefonie API Team
-  email: api@telefonie.example.com
-  url: https://www.telefonie.example.com/team
+  - name: Telefonie API Team
+    email: api@telefonie.example.com
+    url: https://www.telefonie.example.com/team
