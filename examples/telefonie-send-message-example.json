@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.telefonie.com/v1/sms/messages",
+    "headers": {
+      "X-API-Key": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "to": "+14155552671",
+      "from": "+12125550100",
+      "body": "Your verification code is: 847291. Valid for 10 minutes.",
+      "status_callback": "https://your-app.example.com/sms/delivery"
+    }
+  },
+  "response": {
+    "id": "SM1234567890abcdef1234567890abcdef",
+    "status": "queued",
+    "direction": "outbound",
+    "from": "+12125550100",
+    "to": "+14155552671",
+    "body": "Your verification code is: 847291. Valid for 10 minutes.",
+    "num_segments": 1,
+    "num_media": 0,
+    "price": null,
+    "price_unit": "USD",
+    "date_created": "2026-05-03T10:00:00Z",
+    "date_sent": null,
+    "date_updated": "2026-05-03T10:00:00Z",
+    "error_code": null,
+    "error_message": null
+  }
+}

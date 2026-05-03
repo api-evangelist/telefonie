@@ -1,100 +1,97 @@
-# Telefonie API (telefonie)
-Telecommunications and telephony services API
+# Telefonie
 
-**URL:** [Visit APIs.json URL](https://www.telefonie.example.com)
+Telefonie is a cloud communications platform providing programmable telephony, voice, SMS, and number management APIs for developers and businesses. The platform enables developers to embed voice calling, SMS messaging, number provisioning, conferencing, and call recording into their applications via REST APIs.
 
-## Scope
-
-- **Type:** Index 
-
-## Tags:
-
- - Telecommunications, Telephony, Voice, SMS, Messaging
-
-## Timestamps
-
-- **Created:** 2024-01-20 
-- **Modified:** 2024-01-20 
+**Human URL:** [https://www.telefonie.com](https://www.telefonie.com)
+**Developer URL:** [https://developers.telefonie.com](https://developers.telefonie.com)
 
 ## APIs
 
-### Voice API
-Make and receive phone calls programmatically
+### Telefonie Voice API
+Make, receive, and control phone calls programmatically. Supports outbound dialing, inbound handling, IVR, conferencing, and call recording.
 
-**Human URL:** [https://www.telefonie.example.com/voice](https://www.telefonie.example.com/voice)
+- **Documentation:** [https://developers.telefonie.com/voice](https://developers.telefonie.com/voice)
+- **OpenAPI Spec:** [openapi/telefonie-voice-openapi.yml](openapi/telefonie-voice-openapi.yml)
 
+### Telefonie SMS API
+Send and receive SMS and MMS messages globally with delivery receipts and two-way messaging support.
 
-#### Tags:
+- **Documentation:** [https://developers.telefonie.com/sms](https://developers.telefonie.com/sms)
+- **OpenAPI Spec:** [openapi/telefonie-sms-openapi.yml](openapi/telefonie-sms-openapi.yml)
 
- - Voice, Calls, VOIP
+### Telefonie Number Management API
+Search, purchase, configure, and manage phone numbers across multiple countries.
 
-#### Properties
+- **Documentation:** [https://developers.telefonie.com/numbers](https://developers.telefonie.com/numbers)
+- **OpenAPI Spec:** [openapi/telefonie-numbers-openapi.yml](openapi/telefonie-numbers-openapi.yml)
 
-- [Documentation](https://docs.telefonie.example.com/voice)
-- [OpenAPI](https://api.telefonie.example.com/specs/voice-openapi.json)
-- [Swagger](https://api.telefonie.example.com/specs/voice-swagger.json)
+### Telefonie Call Recording API
+Record, store, and retrieve call recordings with dual-channel support and transcription.
 
-### SMS API
-Send and receive SMS messages
+- **Documentation:** [https://developers.telefonie.com/recording](https://developers.telefonie.com/recording)
+- **OpenAPI Spec:** [openapi/telefonie-recording-openapi.yml](openapi/telefonie-recording-openapi.yml)
 
-**Human URL:** [https://www.telefonie.example.com/sms](https://www.telefonie.example.com/sms)
+## Artifacts
 
+### OpenAPI Specifications
+| File | Description |
+|---|---|
+| [openapi/telefonie-voice-openapi.yml](openapi/telefonie-voice-openapi.yml) | Voice API — calls, conferencing, call control |
+| [openapi/telefonie-sms-openapi.yml](openapi/telefonie-sms-openapi.yml) | SMS API — send/receive SMS and MMS |
+| [openapi/telefonie-numbers-openapi.yml](openapi/telefonie-numbers-openapi.yml) | Number Management API — search, purchase, configure numbers |
+| [openapi/telefonie-recording-openapi.yml](openapi/telefonie-recording-openapi.yml) | Call Recording API — record and retrieve call recordings |
 
-#### Tags:
+### JSON Schemas
+| File | Description |
+|---|---|
+| [json-schema/telefonie-call-schema.json](json-schema/telefonie-call-schema.json) | Voice Call object JSON Schema |
+| [json-schema/telefonie-message-schema.json](json-schema/telefonie-message-schema.json) | SMS Message object JSON Schema |
 
- - SMS, Messaging, Text
+### JSON Structure
+| File | Description |
+|---|---|
+| [json-structure/telefonie-call-structure.json](json-structure/telefonie-call-structure.json) | Call object field structure |
 
-#### Properties
+### JSON-LD
+| File | Description |
+|---|---|
+| [json-ld/telefonie-context.jsonld](json-ld/telefonie-context.jsonld) | JSON-LD context for Telefonie data types |
 
-- [Documentation](https://docs.telefonie.example.com/sms)
-- [OpenAPI](https://api.telefonie.example.com/specs/sms-openapi.json)
-- [Pricing](https://www.telefonie.example.com/pricing/sms)
+### Examples
+| File | Description |
+|---|---|
+| [examples/telefonie-initiate-call-example.json](examples/telefonie-initiate-call-example.json) | Initiate a voice call |
+| [examples/telefonie-send-message-example.json](examples/telefonie-send-message-example.json) | Send an SMS message |
 
-### Number Management API
-Purchase, configure, and manage phone numbers
+### Spectral Rules
+| File | Description |
+|---|---|
+| [rules/telefonie-rules.yml](rules/telefonie-rules.yml) | Spectral ruleset for Telefonie API conventions |
 
-**Human URL:** [https://www.telefonie.example.com/numbers](https://www.telefonie.example.com/numbers)
+### Naftiko Capabilities
+| File | Description |
+|---|---|
+| [capabilities/shared/telefonie-voice.yaml](capabilities/shared/telefonie-voice.yaml) | Shared Voice API capability definition |
+| [capabilities/shared/telefonie-sms.yaml](capabilities/shared/telefonie-sms.yaml) | Shared SMS API capability definition |
+| [capabilities/telephony-communications.yaml](capabilities/telephony-communications.yaml) | Unified communications workflow (REST port 8080, MCP port 9090) |
 
-
-#### Tags:
-
- - Phone Numbers, DID, Number Provisioning
-
-#### Properties
-
-- [Documentation](https://docs.telefonie.example.com/numbers)
-- [OpenAPI](https://api.telefonie.example.com/specs/numbers-openapi.json)
-
-### Call Recording API
-Record and retrieve call recordings
-
-**Human URL:** [https://www.telefonie.example.com/recording](https://www.telefonie.example.com/recording)
-
-
-#### Tags:
-
- - Recording, Compliance, Storage
-
-#### Properties
-
-- [Documentation](https://docs.telefonie.example.com/recording)
-- [OpenAPI](https://api.telefonie.example.com/specs/recording-openapi.json)
+### Vocabulary
+| File | Description |
+|---|---|
+| [vocabulary/telefonie-vocabulary.yml](vocabulary/telefonie-vocabulary.yml) | Telefonie platform vocabulary |
 
 ## Common Properties
 
-- [Authentication](https://docs.telefonie.example.com/authentication)
-- [Rate Limits](https://docs.telefonie.example.com/rate-limits)
-- [SDKs](https://www.telefonie.example.com/sdks)
-- [Status](https://status.telefonie.example.com)
-- [Terms of Service](https://www.telefonie.example.com/terms)
-- [Privacy Policy](https://www.telefonie.example.com/privacy)
-- [Sign Up](https://www.telefonie.example.com/signup)
-- [Login](https://www.telefonie.example.com/login)
-- [Blog](https://blog.telefonie.example.com)
-- [Pricing](https://www.telefonie.example.com/pricing)
+| Property | URL |
+|---|---|
+| Authentication | https://developers.telefonie.com/authentication |
+| Getting Started | https://developers.telefonie.com/getting-started |
+| Rate Limits | https://developers.telefonie.com/rate-limits |
+| SDKs | https://www.telefonie.com/sdks |
+| Status | https://status.telefonie.com |
+| Terms of Service | https://www.telefonie.com/terms |
+| Privacy Policy | https://www.telefonie.com/privacy |
+| Pricing | https://www.telefonie.com/pricing |
 
 ## Maintainers
-
-**FN:** Telefonie API Team
-
-**Email:** api@telefonie.example.com
+- **Telefonie API Team** — api@telefonie.com

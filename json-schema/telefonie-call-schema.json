@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://developers.telefonie.com/schema/call",
+  "title": "Telefonie Call",
+  "description": "Represents a voice call made or received through the Telefonie Voice API.",
+  "type": "object",
+  "required": ["id", "status", "direction", "from", "to"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the call (UUID format)"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "ringing", "in-progress", "completed", "failed", "busy", "no-answer", "canceled"],
+      "description": "Current status of the call"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["inbound", "outbound"],
+      "description": "Whether the call is inbound or outbound"
+    },
+    "from": {
+      "type": "string",
+      "pattern": "^\\+[1-9]\\d{1,14}$",
+      "description": "Originating phone number in E.164 format"
+    },
+    "to": {
+      "type": "string",
+      "pattern": "^\\+[1-9]\\d{1,14}$",
+      "description": "Destination phone number in E.164 format"
+    },
+    "duration": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Duration of the call in seconds (available after completion)"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the call was answered"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the call ended"
+    },
+    "price": {
+      "type": "string",
+      "description": "Cost of the call (negative value indicates charge)"
+    },
+    "price_unit": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "description": "ISO 4217 currency code for the price"
+    },
+    "recording_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the call recording if the call was recorded"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Webhook URL that was called to control the call flow"
+    },
+    "status_callback": {
+      "type": "string",
+      "format": "uri",
+      "description": "Webhook URL receiving call status change events"
+    },
+    "answered_by": {
+      "type": "string",
+      "enum": ["human", "machine", "unknown"],
+      "description": "Whether the call was answered by a human or machine (AMD result)"
+    }
+  }
+}

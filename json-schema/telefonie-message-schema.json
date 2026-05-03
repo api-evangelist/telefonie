@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://developers.telefonie.com/schema/message",
+  "title": "Telefonie SMS Message",
+  "description": "Represents an SMS or MMS message sent or received through the Telefonie SMS API.",
+  "type": "object",
+  "required": ["id", "status", "direction", "from", "to"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the message"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "sending", "sent", "delivered", "undelivered", "failed", "receiving", "received"],
+      "description": "Current delivery status of the message"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["inbound", "outbound"],
+      "description": "Whether the message is inbound or outbound"
+    },
+    "from": {
+      "type": "string",
+      "description": "Sender phone number in E.164 format"
+    },
+    "to": {
+      "type": "string",
+      "description": "Recipient phone number in E.164 format"
+    },
+    "body": {
+      "type": "string",
+      "maxLength": 1600,
+      "description": "Text content of the message"
+    },
+    "num_segments": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of SMS segments used (long messages may span multiple segments)"
+    },
+    "num_media": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of media files attached (MMS)"
+    },
+    "media_url": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URLs of media files attached to an MMS message"
+    },
+    "price": {
+      "type": "string",
+      "description": "Cost of sending the message"
+    },
+    "price_unit": {
+      "type": "string",
+      "description": "ISO 4217 currency code"
+    },
+    "date_created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the message resource was created"
+    },
+    "date_sent": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the message was dispatched"
+    },
+    "date_updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the message resource was last updated"
+    },
+    "error_code": {
+      "type": "integer",
+      "description": "Telefonie error code if the message failed"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Human-readable error description if the message failed"
+    }
+  }
+}

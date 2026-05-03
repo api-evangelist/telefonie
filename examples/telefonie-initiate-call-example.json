@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.telefonie.com/v1/voice/calls",
+    "headers": {
+      "X-API-Key": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "to": "+14155552671",
+      "from": "+12125550100",
+      "url": "https://your-app.example.com/voice/webhook",
+      "status_callback": "https://your-app.example.com/voice/status",
+      "record": true,
+      "timeout": 30
+    }
+  },
+  "response": {
+    "id": "CA1234567890abcdef1234567890abcdef",
+    "status": "queued",
+    "direction": "outbound",
+    "from": "+12125550100",
+    "to": "+14155552671",
+    "start_time": null,
+    "end_time": null,
+    "duration": null,
+    "price": null,
+    "price_unit": "USD",
+    "recording_url": null,
+    "url": "https://your-app.example.com/voice/webhook"
+  }
+}

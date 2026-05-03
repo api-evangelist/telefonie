@@ -1,0 +1,103 @@
+extends: spectral:oas
+rules:
+  telefonie-operation-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: "Operation summary '{{value}}' must use Title Case"
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9]*([ ][A-Z][a-z0-9]*)*|[A-Z]+)$"
+
+  telefonie-operation-must-have-operationid:
+    description: All operations must have an operationId
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  telefonie-operationid-camelcase:
+    description: Operation IDs must use camelCase
+    message: "OperationId '{{value}}' must use camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  telefonie-operation-must-have-description:
+    description: All operations should have a description
+    severity: info
+    given: "$.paths[*][*]"
+    then:
+      field: description
+      function: truthy
+
+  telefonie-operation-must-have-tag:
+    description: All operations must have at least one tag
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  telefonie-phone-number-e164:
+    description: Phone number parameters should reference E.164 format in their descriptions
+    message: "Phone number parameter '{{path}}' description should mention E.164 format"
+    severity: info
+    given: "$.paths[*][*].parameters[?(@.name == 'to' || @.name == 'from' || @.name == 'phone_number')]"
+    then:
+      field: description
+      function: truthy
+
+  telefonie-response-200-required:
+    description: GET and POST operations must define a 200 or 201 response
+    severity: error
+    given: "$.paths[*].get.responses"
+    then:
+      field: "200"
+      function: truthy
+
+  telefonie-delete-204-response:
+    description: DELETE operations should return 204
+    severity: warn
+    given: "$.paths[*].delete.responses"
+    then:
+      field: "204"
+      function: truthy
+
+  telefonie-schema-properties-have-description:
+    description: Schema properties should have descriptions
+    severity: info
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: description
+      function: truthy
+
+  telefonie-pagination-parameters:
+    description: List endpoints should support page and page_size parameters
+    severity: info
+    given: "$.paths[*].get.operationId"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "^list"
+
+  telefonie-security-required:
+    description: All operations must have security defined
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: security
+      function: falsy
+
+  telefonie-servers-required:
+    description: API must define servers
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy

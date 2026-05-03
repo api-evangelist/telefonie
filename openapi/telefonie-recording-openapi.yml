@@ -1,0 +1,150 @@
+openapi: 3.0.3
+info:
+  title: Telefonie Call Recording API
+  description: >-
+    Record, store, and retrieve call recordings. Supports dual-channel recording,
+    transcription, compliance archiving, and secure download URLs.
+  version: 'v1'
+  contact:
+    name: Telefonie Support
+    url: https://www.telefonie.com/support
+  termsOfService: https://www.telefonie.com/terms
+servers:
+  - url: https://api.telefonie.com/v1/recordings
+    description: Telefonie Recording API
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Recordings
+    description: Manage call recordings
+paths:
+  /recordings:
+    get:
+      operationId: listRecordings
+      summary: List Recordings
+      description: Retrieve a list of call recordings in your account.
+      tags:
+        - Recordings
+      parameters:
+        - name: call_id
+          in: query
+          schema:
+            type: string
+          description: Filter recordings by call ID
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [in-progress, completed, failed]
+          description: Filter by recording status
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page number
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+          description: Results per page
+      responses:
+        '200':
+          description: List of recordings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recordings:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Recording'
+                  total:
+                    type: integer
+  /recordings/{recording_id}:
+    get:
+      operationId: getRecording
+      summary: Get Recording
+      description: Retrieve details and download URL for a specific recording.
+      tags:
+        - Recordings
+      parameters:
+        - name: recording_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the recording
+      responses:
+        '200':
+          description: Recording details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recording'
+        '404':
+          description: Recording not found
+    delete:
+      operationId: deleteRecording
+      summary: Delete Recording
+      description: Permanently delete a call recording.
+      tags:
+        - Recordings
+      parameters:
+        - name: recording_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the recording
+      responses:
+        '204':
+          description: Recording deleted
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    Recording:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the recording
+        call_id:
+          type: string
+          description: ID of the call this recording belongs to
+        status:
+          type: string
+          enum: [in-progress, completed, failed]
+          description: Recording status
+        duration:
+          type: integer
+          description: Duration of the recording in seconds
+        channels:
+          type: integer
+          enum: [1, 2]
+          description: Number of audio channels (1=mono, 2=dual/stereo)
+        source:
+          type: string
+          description: Recording trigger source
+        price:
+          type: string
+          description: Cost of storing the recording
+        price_unit:
+          type: string
+          description: Currency
+        media_url:
+          type: string
+          description: URL to download the recording (WAV/MP3)
+        date_created:
+          type: string
+          format: date-time
+          description: When the recording was created
+      required:
+        - id
+        - call_id
+        - status

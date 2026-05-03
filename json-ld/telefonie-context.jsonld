@@ -1,0 +1,99 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "telefonie": "https://developers.telefonie.com/schema/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Call": "telefonie:Call",
+    "Message": "telefonie:Message",
+    "PhoneNumber": "schema:ContactPoint",
+    "Conference": "telefonie:Conference",
+    "Recording": "telefonie:Recording",
+
+    "id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "telefonie:status",
+      "@type": "xsd:string"
+    },
+    "direction": {
+      "@id": "telefonie:direction",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "schema:sender",
+      "@type": "xsd:string"
+    },
+    "to": {
+      "@id": "schema:recipient",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "schema:text",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "schema:duration",
+      "@type": "xsd:integer"
+    },
+    "start_time": {
+      "@id": "schema:startTime",
+      "@type": "xsd:dateTime"
+    },
+    "end_time": {
+      "@id": "schema:endTime",
+      "@type": "xsd:dateTime"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "price_unit": {
+      "@id": "schema:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "recording_url": {
+      "@id": "telefonie:recordingUrl",
+      "@type": "xsd:anyURI"
+    },
+    "phone_number": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "country_code": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "friendly_name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "date_created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "date_sent": {
+      "@id": "telefonie:dateSent",
+      "@type": "xsd:dateTime"
+    },
+    "error_code": {
+      "@id": "telefonie:errorCode",
+      "@type": "xsd:integer"
+    },
+    "error_message": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "capabilities": {
+      "@id": "telefonie:capabilities",
+      "@type": "@id"
+    },
+    "media_url": {
+      "@id": "schema:contentUrl",
+      "@type": "xsd:anyURI"
+    }
+  }
+}

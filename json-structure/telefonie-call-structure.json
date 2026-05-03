@@ -1,0 +1,18 @@
+{
+  "name": "Telefonie Call",
+  "description": "Structure of a Voice Call object in the Telefonie API",
+  "fields": [
+    { "name": "id", "type": "string", "required": true, "description": "Unique call identifier (UUID)" },
+    { "name": "status", "type": "string", "required": true, "description": "Call status: queued, ringing, in-progress, completed, failed, busy, no-answer, canceled" },
+    { "name": "direction", "type": "string", "required": true, "description": "inbound or outbound" },
+    { "name": "from", "type": "string", "required": true, "description": "Originating phone number (E.164)" },
+    { "name": "to", "type": "string", "required": true, "description": "Destination phone number (E.164)" },
+    { "name": "duration", "type": "integer", "required": false, "description": "Duration in seconds (after completion)" },
+    { "name": "start_time", "type": "string", "required": false, "description": "ISO 8601 timestamp when answered" },
+    { "name": "end_time", "type": "string", "required": false, "description": "ISO 8601 timestamp when ended" },
+    { "name": "price", "type": "string", "required": false, "description": "Cost of the call" },
+    { "name": "price_unit", "type": "string", "required": false, "description": "ISO 4217 currency code" },
+    { "name": "recording_url", "type": "string", "required": false, "description": "URL to download the call recording" },
+    { "name": "answered_by", "type": "string", "required": false, "description": "AMD result: human, machine, or unknown" }
+  ]
+}

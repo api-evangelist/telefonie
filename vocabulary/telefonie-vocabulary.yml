@@ -1,0 +1,168 @@
+name: Telefonie Vocabulary
+description: >-
+  Vocabulary and taxonomy for the Telefonie cloud communications platform covering
+  voice calling, SMS messaging, number management, recording, and CPaaS concepts.
+version: '1.0'
+created: '2026-05-03'
+modified: '2026-05-03'
+url: https://developers.telefonie.com
+
+categories:
+  - name: Voice Concepts
+    description: Core concepts for the Voice API
+    terms:
+      - term: Call
+        definition: A telephone call session. Can be inbound (received) or outbound (dialed).
+        tags: [Voice, Core]
+      - term: Outbound Call
+        definition: A call initiated by your application to a destination phone number.
+        tags: [Voice]
+      - term: Inbound Call
+        definition: A call received from an external caller on a Telefonie number.
+        tags: [Voice]
+      - term: Call Status
+        definition: >-
+          Lifecycle state of a call: queued, ringing, in-progress, completed,
+          failed, busy, no-answer, or canceled.
+        tags: [Voice]
+      - term: IVR
+        definition: >-
+          Interactive Voice Response — an automated phone system that interacts
+          with callers using voice and DTMF keypad input.
+        tags: [Voice]
+      - term: Webhook
+        definition: >-
+          A callback URL your application exposes to receive real-time events
+          about call status changes and control call flow.
+        tags: [Voice, SMS, Integration]
+      - term: Conference
+        definition: >-
+          A multi-party call where multiple participants are connected in the
+          same audio session. Supports muting, holding, and dial-out.
+        tags: [Voice, Conferencing]
+      - term: AMD
+        definition: >-
+          Answering Machine Detection — determines whether a call was answered
+          by a human or a voicemail/answering machine.
+        tags: [Voice]
+      - term: DTMF
+        definition: >-
+          Dual-Tone Multi-Frequency — the tones produced when pressing phone
+          keypad digits, used for IVR navigation.
+        tags: [Voice]
+      - term: SIP
+        definition: >-
+          Session Initiation Protocol — the signaling protocol used for VoIP
+          calls. Telefonie supports SIP trunking for enterprise integrations.
+        tags: [Voice, Protocol]
+      - term: WebRTC
+        definition: >-
+          Web Real-Time Communication — browser and mobile technology enabling
+          voice and video calls directly from web applications without plugins.
+        tags: [Voice, Protocol]
+
+  - name: SMS Concepts
+    description: Core concepts for the SMS API
+    terms:
+      - term: SMS
+        definition: >-
+          Short Message Service — text messages up to 160 characters per segment.
+          Longer messages are split into multiple segments and concatenated.
+        tags: [SMS, Core]
+      - term: MMS
+        definition: >-
+          Multimedia Messaging Service — messages with attached media (images,
+          audio, video). Requires MMS-capable numbers.
+        tags: [SMS]
+      - term: Message Segment
+        definition: >-
+          A single SMS unit of up to 160 characters (GSM-7) or 70 characters
+          (Unicode/UCS-2). Long messages span multiple segments.
+        tags: [SMS]
+      - term: Delivery Receipt
+        definition: >-
+          A status update confirming whether an SMS was successfully delivered
+          to the recipient's handset. Sent to the status_callback URL.
+        tags: [SMS]
+      - term: Two-Way Messaging
+        definition: >-
+          Conversations where your application both sends and receives SMS
+          messages on the same number.
+        tags: [SMS]
+      - term: Bulk SMS
+        definition: >-
+          Sending large volumes of SMS messages to many recipients simultaneously,
+          typically for marketing, alerts, or notifications.
+        tags: [SMS]
+      - term: Unicode SMS
+        definition: >-
+          SMS messages containing characters outside the standard GSM-7 alphabet
+          (e.g., emojis, Arabic, Chinese). Reduces max characters per segment.
+        tags: [SMS]
+
+  - name: Number Management
+    description: Concepts for phone number provisioning and management
+    terms:
+      - term: DID
+        definition: >-
+          Direct Inward Dialing — a telephone number assigned to your account
+          that routes inbound calls to your application.
+        tags: [Numbers]
+      - term: E.164
+        definition: >-
+          International telephone number format starting with + and country code
+          (e.g., +14155552671). The standard format for all Telefonie APIs.
+        tags: [Numbers, Standard]
+      - term: Local Number
+        definition: >-
+          A phone number with a local area code, typically used for geographic
+          presence in a specific city or region.
+        tags: [Numbers]
+      - term: Toll-Free Number
+        definition: >-
+          A number where the called party (your business) pays for the call
+          rather than the caller. Common prefixes: 800, 888, 877, 866, 855.
+        tags: [Numbers]
+      - term: Mobile Number
+        definition: >-
+          A phone number allocated from mobile operator ranges. Required for
+          sending SMS in some countries (A2P 10DLC in the US).
+        tags: [Numbers]
+      - term: Number Portability (LNP)
+        definition: >-
+          The ability to transfer an existing phone number from another carrier
+          to Telefonie while keeping the same number.
+        tags: [Numbers]
+      - term: Number Capabilities
+        definition: >-
+          The services supported by a specific phone number: voice, SMS, and/or MMS.
+        tags: [Numbers]
+
+  - name: Platform
+    description: General CPaaS platform concepts
+    terms:
+      - term: CPaaS
+        definition: >-
+          Communications Platform as a Service — a cloud-based middleware enabling
+          developers to embed real-time communications into applications via APIs.
+        tags: [Platform]
+      - term: API Key
+        definition: >-
+          Authentication credential passed in the X-API-Key header to authorize
+          requests to the Telefonie API.
+        tags: [Platform, Security]
+      - term: Webhook URL
+        definition: >-
+          An HTTPS URL hosted by your application that Telefonie calls with
+          event data (e.g., call status changes, inbound SMS).
+        tags: [Platform, Integration]
+      - term: Status Callback
+        definition: >-
+          A webhook URL that receives POST requests when a resource (call, message)
+          changes status, enabling real-time event processing.
+        tags: [Platform, Integration]
+      - term: Rate Limit
+        definition: >-
+          Maximum number of API requests allowed per second or per time window.
+          Exceeding the limit returns HTTP 429.
+        tags: [Platform]
