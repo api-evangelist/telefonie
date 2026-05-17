@@ -151,19 +151,19 @@ apis:
 common:
   - type: Authentication
     url: https://developers.telefonie.com/authentication
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developers.telefonie.com/getting-started
-  - type: Rate Limits
+  - type: RateLimits
     url: https://developers.telefonie.com/rate-limits
   - type: SDKs
     url: https://www.telefonie.com/sdks
-  - type: Status
+  - type: StatusPage
     url: https://status.telefonie.com
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.telefonie.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.telefonie.com/privacy
-  - type: Sign Up
+  - type: SignUp
     url: https://www.telefonie.com/signup
   - type: Login
     url: https://www.telefonie.com/login
@@ -171,7 +171,7 @@ common:
     url: https://blog.telefonie.com
   - type: Pricing
     url: https://www.telefonie.com/pricing
-  - type: Change Log
+  - type: ChangeLog
     url: https://developers.telefonie.com/changelog
   - type: GitHub
     url: https://github.com/telefonie
