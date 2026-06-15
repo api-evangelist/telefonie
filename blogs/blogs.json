@@ -2,10 +2,14 @@
   "repo": "telefonie",
   "feeds": [
     {
+      "source": "https://blog.telefonie.com",
+      "error": "URLError"
+    },
+    {
       "source": "https://www.telefonie.com/login",
       "error": "URLError"
     }
   ],
-  "fetched": "2026-06-01T23:35:02Z",
+  "fetched": "2026-06-14T20:42:17Z",
   "post_count": 0
 }

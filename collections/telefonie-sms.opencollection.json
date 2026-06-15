@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Telefonie SMS API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/sms/messages",
+            "params": [
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by message direction"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by message status"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages from this number"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages to this number"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of sent and received messages with optional filters."
+        },
+        {
+          "info": {
+            "name": "Send Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telefonie.com/v1/sms/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send an SMS or MMS message to a phone number."
+        },
+        {
+          "info": {
+            "name": "Get Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/sms/messages/:message_id",
+            "params": [
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the message"
+              }
+            ]
+          },
+          "docs": "Retrieve details about a specific message."
+        },
+        {
+          "info": {
+            "name": "Delete Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telefonie.com/v1/sms/messages/:message_id",
+            "params": [
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the message"
+              }
+            ]
+          },
+          "docs": "Delete a message record from your account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Telefonie Call Recording API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recordings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Recordings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/recordings/recordings",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter recordings by call ID"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by recording status"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of call recordings in your account."
+        },
+        {
+          "info": {
+            "name": "Get Recording",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/recordings/recordings/:recording_id",
+            "params": [
+              {
+                "name": "recording_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the recording"
+              }
+            ]
+          },
+          "docs": "Retrieve details and download URL for a specific recording."
+        },
+        {
+          "info": {
+            "name": "Delete Recording",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telefonie.com/v1/recordings/recordings/:recording_id",
+            "params": [
+              {
+                "name": "recording_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the recording"
+              }
+            ]
+          },
+          "docs": "Permanently delete a call recording."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1062 @@
+{
+  "item": [
+    {
+      "id": "53e0a96b-1f99-4473-976f-87849ec629ad",
+      "name": "Calls",
+      "description": {
+        "content": "Make and manage voice calls",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ce8d8ce-a904-4d62-8aad-863429804afe",
+          "name": "List Calls",
+          "request": {
+            "name": "List Calls",
+            "description": {
+              "content": "Retrieve a paginated list of calls with optional filtering by status, direction, or date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by call status"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "Filter by call direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Filter calls from this phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "Filter calls to this phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad185ad9-77e8-4f29-85d0-e1d1757aa48c",
+              "name": "List of calls",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calls\": [\n    {\n      \"id\": \"string\",\n      \"status\": \"queued\",\n      \"direction\": \"outbound\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"duration\": 6918,\n      \"start_time\": \"1947-11-06T21:24:53.825Z\",\n      \"end_time\": \"1956-04-01T19:08:55.541Z\",\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"recording_url\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"status\": \"ringing\",\n      \"direction\": \"outbound\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"duration\": 7184,\n      \"start_time\": \"2012-07-16T09:30:01.451Z\",\n      \"end_time\": \"2004-11-29T07:06:15.802Z\",\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"recording_url\": \"string\"\n    }\n  ],\n  \"total\": 1445,\n  \"page\": 3122,\n  \"page_size\": 7642\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d882f1b-408f-47bb-a2b7-a9f4fc944348",
+          "name": "Initiate Call",
+          "request": {
+            "name": "Initiate Call",
+            "description": {
+              "content": "Initiate an outbound phone call to a specified number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"url\": \"<string>\",\n  \"method\": \"<string>\",\n  \"status_callback\": \"<string>\",\n  \"timeout\": 30,\n  \"record\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "564d171e-f010-4cfb-9799-db0f27cf5e09",
+              "name": "Call initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"url\": \"<string>\",\n  \"method\": \"<string>\",\n  \"status_callback\": \"<string>\",\n  \"timeout\": 30,\n  \"record\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"ringing\",\n  \"direction\": \"inbound\",\n  \"from\": \"string\",\n  \"to\": \"string\",\n  \"duration\": 7413,\n  \"start_time\": \"1990-04-28T03:07:08.587Z\",\n  \"end_time\": \"1972-07-11T18:34:03.763Z\",\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"recording_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90ba4e07-4b09-466e-9ab6-12c2bf788d79",
+          "name": "Get Call",
+          "request": {
+            "name": "Get Call",
+            "description": {
+              "content": "Retrieve details about a specific call by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) Unique identifier for the call"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c956977-ed32-437b-940e-f369e886a18d",
+              "name": "Call details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) Unique identifier for the call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"ringing\",\n  \"direction\": \"inbound\",\n  \"from\": \"string\",\n  \"to\": \"string\",\n  \"duration\": 7413,\n  \"start_time\": \"1990-04-28T03:07:08.587Z\",\n  \"end_time\": \"1972-07-11T18:34:03.763Z\",\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"recording_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc72d82f-ab8d-4e98-b278-acf9bbf8c847",
+              "name": "Call not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) Unique identifier for the call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5b1b128-1ef4-450b-a1a2-e87b6699530b",
+          "name": "Update Call",
+          "request": {
+            "name": "Update Call",
+            "description": {
+              "content": "Modify an in-progress call — mute, hold, transfer, or redirect to a new URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) Unique identifier for the call"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"method\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f3d7489-1777-477a-827a-c2043bbf9b2f",
+              "name": "Call updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) Unique identifier for the call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"method\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"ringing\",\n  \"direction\": \"inbound\",\n  \"from\": \"string\",\n  \"to\": \"string\",\n  \"duration\": 7413,\n  \"start_time\": \"1990-04-28T03:07:08.587Z\",\n  \"end_time\": \"1972-07-11T18:34:03.763Z\",\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"recording_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9c4b17d-f3cf-4396-9ca6-6a29a54b6877",
+          "name": "End Call",
+          "request": {
+            "name": "End Call",
+            "description": {
+              "content": "Hang up an in-progress or ringing call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calls",
+                ":call_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "call_id",
+                  "description": "(Required) Unique identifier for the call"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4dcf14b9-0747-4133-a5d1-b513a8e03f17",
+              "name": "Call ended",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calls",
+                    ":call_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "call_id",
+                      "description": "(Required) Unique identifier for the call"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f2d9c66d-e330-4394-9b2b-acccf1a7da73",
+      "name": "Conferences",
+      "description": {
+        "content": "Multi-party conferencing",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33c9275c-5289-433c-a72a-65bf17da36cd",
+          "name": "List Conferences",
+          "request": {
+            "name": "List Conferences",
+            "description": {
+              "content": "List all active and completed conference calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by conference status"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f29fae76-b950-4181-b4a1-efe7f9c6a374",
+              "name": "List of conferences",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conferences\": [\n    {\n      \"id\": \"string\",\n      \"status\": \"completed\",\n      \"friendly_name\": \"string\",\n      \"participant_count\": 9178,\n      \"max_participants\": 9647,\n      \"date_created\": \"1999-11-28T14:27:54.944Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"status\": \"completed\",\n      \"friendly_name\": \"string\",\n      \"participant_count\": 5348,\n      \"max_participants\": 9995,\n      \"date_created\": \"1990-12-20T11:07:56.257Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24196749-a62f-4110-9d96-c94ed7ab85fd",
+          "name": "Create Conference",
+          "request": {
+            "name": "Create Conference",
+            "description": {
+              "content": "Create a new conference room.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"friendly_name\": \"<string>\",\n  \"max_participants\": 250,\n  \"record\": \"<boolean>\",\n  \"status_callback\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af6fba8f-50f3-469d-a7a1-5df7312d9252",
+              "name": "Conference created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"friendly_name\": \"<string>\",\n  \"max_participants\": 250,\n  \"record\": \"<boolean>\",\n  \"status_callback\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"init\",\n  \"friendly_name\": \"string\",\n  \"participant_count\": 4183,\n  \"max_participants\": 351,\n  \"date_created\": \"1996-12-04T17:47:26.951Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "742ca6a5-da24-44a6-82d8-6fde6c495d9e",
+          "name": "List Conference Participants",
+          "request": {
+            "name": "List Conference Participants",
+            "description": {
+              "content": "List all participants currently in a conference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conferences",
+                ":conference_id",
+                "participants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conference_id",
+                  "description": "(Required) Unique identifier for the conference"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaa8493e-48fb-4f65-bffb-46acdb99c08b",
+              "name": "List of participants",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conferences",
+                    ":conference_id",
+                    "participants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conference_id",
+                      "description": "(Required) Unique identifier for the conference"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"participants\": [\n    {\n      \"call_id\": \"string\",\n      \"conference_id\": \"string\",\n      \"muted\": false,\n      \"hold\": true,\n      \"status\": \"string\"\n    },\n    {\n      \"call_id\": \"string\",\n      \"conference_id\": \"string\",\n      \"muted\": false,\n      \"hold\": false,\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e642d13a-189c-4076-ac2d-ad6bc32b1c35",
+          "name": "Add Conference Participant",
+          "request": {
+            "name": "Add Conference Participant",
+            "description": {
+              "content": "Dial out and add a participant to an existing conference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "conferences",
+                ":conference_id",
+                "participants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "conference_id",
+                  "description": "(Required) Unique identifier for the conference"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"muted\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02c9d9a2-ece4-4c0b-a4e4-a6388d3d1b13",
+              "name": "Participant added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "conferences",
+                    ":conference_id",
+                    "participants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "conference_id",
+                      "description": "(Required) Unique identifier for the conference"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"muted\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"call_id\": \"string\",\n  \"conference_id\": \"string\",\n  \"muted\": true,\n  \"hold\": false,\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e765c9bc-bf25-42b8-bfa2-d4cae36a428e",
+      "name": "Recordings",
+      "description": {
+        "content": "Call recording management",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telefonie.com/v1/voice",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a06bea85-8fb9-49d2-a0b2-84c6156ca7fe",
+    "name": "Telefonie Voice API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Make, receive, and control phone calls programmatically. Supports outbound dialing, inbound call handling, IVR, conferencing, call transfer, and real-time call control.\n\nContact Support:\n Name: Telefonie Support\n Email: support@telefonie.com",
+      "type": "text/plain"
+    }
+  }
+}

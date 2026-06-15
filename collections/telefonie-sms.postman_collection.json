@@ -1,0 +1,528 @@
+{
+  "item": [
+    {
+      "id": "a00c23b9-c8c2-4992-bcf4-a8d38f596a36",
+      "name": "Messages",
+      "description": {
+        "content": "Send and receive SMS/MMS messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c1c1ca7-db4d-4de6-b948-ff5595461556",
+          "name": "List Messages",
+          "request": {
+            "name": "List Messages",
+            "description": {
+              "content": "Retrieve a list of sent and received messages with optional filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "Filter by message direction"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by message status"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Filter messages from this number"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "Filter messages to this number"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Results per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41540ddc-4ddd-4ab3-bb6a-eea2da17bdfe",
+              "name": "List of messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"string\",\n      \"status\": \"queued\",\n      \"direction\": \"inbound\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"body\": \"string\",\n      \"num_segments\": 1267,\n      \"num_media\": 4143,\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"date_created\": \"1979-09-14T19:56:15.254Z\",\n      \"date_sent\": \"1996-04-12T20:23:05.736Z\",\n      \"date_updated\": \"1958-06-29T20:53:35.758Z\",\n      \"error_code\": 8206,\n      \"error_message\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"status\": \"sent\",\n      \"direction\": \"inbound\",\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"body\": \"string\",\n      \"num_segments\": 9421,\n      \"num_media\": 2260,\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"date_created\": \"1976-05-28T13:28:31.225Z\",\n      \"date_sent\": \"2009-02-15T21:18:27.240Z\",\n      \"date_updated\": \"1974-11-25T01:10:26.556Z\",\n      \"error_code\": 2529,\n      \"error_message\": \"string\"\n    }\n  ],\n  \"total\": 8999\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7600d5a-ef11-4386-87f8-68eaf23c778c",
+          "name": "Send Message",
+          "request": {
+            "name": "Send Message",
+            "description": {
+              "content": "Send an SMS or MMS message to a phone number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"body\": \"<string>\",\n  \"media_url\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_callback\": \"<string>\",\n  \"validity_period\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "555e2a1f-6af2-4ccc-bfc1-11fda308ed3d",
+              "name": "Message sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"body\": \"<string>\",\n  \"media_url\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_callback\": \"<string>\",\n  \"validity_period\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"receiving\",\n  \"direction\": \"outbound\",\n  \"from\": \"string\",\n  \"to\": \"string\",\n  \"body\": \"string\",\n  \"num_segments\": 3925,\n  \"num_media\": 3139,\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"date_created\": \"1967-11-08T14:45:11.794Z\",\n  \"date_sent\": \"1991-05-17T19:03:49.346Z\",\n  \"date_updated\": \"2021-04-08T08:06:11.638Z\",\n  \"error_code\": 3410,\n  \"error_message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc5f7d4b-3a86-4f3e-a35c-c082f3049fcb",
+          "name": "Get Message",
+          "request": {
+            "name": "Get Message",
+            "description": {
+              "content": "Retrieve details about a specific message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":message_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message_id",
+                  "description": "(Required) Unique identifier for the message"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee280d07-93ed-4e58-830d-508956061cc5",
+              "name": "Message details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":message_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_id",
+                      "description": "(Required) Unique identifier for the message"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"receiving\",\n  \"direction\": \"outbound\",\n  \"from\": \"string\",\n  \"to\": \"string\",\n  \"body\": \"string\",\n  \"num_segments\": 3925,\n  \"num_media\": 3139,\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"date_created\": \"1967-11-08T14:45:11.794Z\",\n  \"date_sent\": \"1991-05-17T19:03:49.346Z\",\n  \"date_updated\": \"2021-04-08T08:06:11.638Z\",\n  \"error_code\": 3410,\n  \"error_message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f70c042c-ef0f-4af1-988f-6b402dd1902a",
+              "name": "Message not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":message_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_id",
+                      "description": "(Required) Unique identifier for the message"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4428d450-64f4-4d99-a7d6-252d853f2f27",
+          "name": "Delete Message",
+          "request": {
+            "name": "Delete Message",
+            "description": {
+              "content": "Delete a message record from your account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                ":message_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "message_id",
+                  "description": "(Required) Unique identifier for the message"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95875850-1895-4b08-ad21-daac23431973",
+              "name": "Message deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    ":message_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "message_id",
+                      "description": "(Required) Unique identifier for the message"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d834a6cb-7c0d-4db2-84ec-d4db36744692",
+      "name": "Inbound",
+      "description": {
+        "content": "Manage inbound message configuration",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telefonie.com/v1/sms",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c4675901-5cde-4167-933d-e883fd89e968",
+    "name": "Telefonie SMS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Send and receive SMS and MMS messages globally. Supports one-way notifications, two-way conversations, bulk messaging, delivery receipts, and inbound webhooks.\n\nContact Support:\n Name: Telefonie Support\n Email: support@telefonie.com",
+      "type": "text/plain"
+    }
+  }
+}
