@@ -156,7 +156,7 @@ common:
     url: https://www.telefonie.com/terms
   - type: PrivacyPolicy
     url: https://www.telefonie.com/privacy
-  - type: SignUp
+  - type: Signup
     url: https://www.telefonie.com/signup
   - type: Login
     url: https://www.telefonie.com/login
