@@ -1,0 +1,19 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/telefonie-numbers-openapi.yml, openapi/telefonie-recording-openapi.yml, openapi/telefonie-sms-openapi.yml,
+  openapi/telefonie-voice-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  sources:
+  - openapi/telefonie-numbers-openapi.yml
+  - openapi/telefonie-recording-openapi.yml
+  - openapi/telefonie-sms-openapi.yml
+  - openapi/telefonie-voice-openapi.yml

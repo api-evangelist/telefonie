@@ -143,6 +143,8 @@ apis:
         url: https://www.telefonie.com/support
 common:
   - type: Authentication
+    url: authentication/telefonie-authentication.yml
+  - type: Authentication
     url: https://developers.telefonie.com/authentication
   - type: GettingStarted
     url: https://developers.telefonie.com/getting-started
