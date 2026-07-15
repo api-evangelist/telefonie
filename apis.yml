@@ -142,6 +142,8 @@ apis:
       - type: Support
         url: https://www.telefonie.com/support
 common:
+  - type: AgenticAccess
+    url: agentic-access/telefonie-agentic-access.yml
   - type: Authentication
     url: authentication/telefonie-authentication.yml
   - type: Authentication
