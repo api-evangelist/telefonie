@@ -1,0 +1,275 @@
+openapi: 3.0.3
+info:
+  title: Telefonie Number Management Available Numbers Calls API
+  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  version: v1
+  contact:
+    name: Telefonie Support
+    url: https://www.telefonie.com/support
+  termsOfService: https://www.telefonie.com/terms
+servers:
+- url: https://api.telefonie.com/v1/numbers
+  description: Telefonie Number Management API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Calls
+  description: Make and manage voice calls
+paths:
+  /calls:
+    get:
+      operationId: listCalls
+      summary: List Calls
+      description: Retrieve a paginated list of calls with optional filtering by status, direction, or date range.
+      tags:
+      - Calls
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - queued
+          - ringing
+          - in-progress
+          - completed
+          - failed
+          - busy
+          - no-answer
+          - canceled
+        description: Filter by call status
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - inbound
+          - outbound
+        description: Filter by call direction
+      - name: from
+        in: query
+        schema:
+          type: string
+        description: Filter calls from this phone number
+      - name: to
+        in: query
+        schema:
+          type: string
+        description: Filter calls to this phone number
+      - name: page
+        in: query
+        schema:
+          type: integer
+        description: Page number for pagination
+      - name: page_size
+        in: query
+        schema:
+          type: integer
+          maximum: 100
+        description: Number of results per page
+      responses:
+        '200':
+          description: List of calls
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calls:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Call'
+                  total:
+                    type: integer
+                  page:
+                    type: integer
+                  page_size:
+                    type: integer
+    post:
+      operationId: initiateCall
+      summary: Initiate Call
+      description: Initiate an outbound phone call to a specified number.
+      tags:
+      - Calls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - to
+              - from
+              properties:
+                to:
+                  type: string
+                  description: The phone number to call in E.164 format
+                from:
+                  type: string
+                  description: The phone number to use as caller ID (must be a number you own)
+                url:
+                  type: string
+                  description: Webhook URL to receive call events and control call flow
+                method:
+                  type: string
+                  enum:
+                  - GET
+                  - POST
+                  description: HTTP method for the webhook URL
+                status_callback:
+                  type: string
+                  description: URL to receive call status change events
+                timeout:
+                  type: integer
+                  description: Number of seconds to wait for the call to be answered
+                  default: 30
+                record:
+                  type: boolean
+                  description: Whether to record the call
+      responses:
+        '201':
+          description: Call initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Call'
+  /calls/{call_id}:
+    get:
+      operationId: getCall
+      summary: Get Call
+      description: Retrieve details about a specific call by its ID.
+      tags:
+      - Calls
+      parameters:
+      - name: call_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier for the call
+      responses:
+        '200':
+          description: Call details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Call'
+        '404':
+          description: Call not found
+    post:
+      operationId: updateCall
+      summary: Update Call
+      description: Modify an in-progress call — mute, hold, transfer, or redirect to a new URL.
+      tags:
+      - Calls
+      parameters:
+      - name: call_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier for the call
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - completed
+                  - canceled
+                  description: Change call status (hang up or cancel)
+                url:
+                  type: string
+                  description: Redirect call to a new webhook URL
+                method:
+                  type: string
+                  description: HTTP method for the redirect URL
+      responses:
+        '200':
+          description: Call updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Call'
+    delete:
+      operationId: endCall
+      summary: End Call
+      description: Hang up an in-progress or ringing call.
+      tags:
+      - Calls
+      parameters:
+      - name: call_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier for the call
+      responses:
+        '204':
+          description: Call ended
+components:
+  schemas:
+    Call:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the call
+        status:
+          type: string
+          enum:
+          - queued
+          - ringing
+          - in-progress
+          - completed
+          - failed
+          - busy
+          - no-answer
+          - canceled
+          description: Current status of the call
+        direction:
+          type: string
+          enum:
+          - inbound
+          - outbound
+          description: Whether the call is inbound or outbound
+        from:
+          type: string
+          description: The phone number that made the call
+        to:
+          type: string
+          description: The phone number that was called
+        duration:
+          type: integer
+          description: Duration of the call in seconds
+        start_time:
+          type: string
+          format: date-time
+          description: When the call started
+        end_time:
+          type: string
+          format: date-time
+          description: When the call ended
+        price:
+          type: string
+          description: Cost of the call
+        price_unit:
+          type: string
+          description: Currency for the price
+        recording_url:
+          type: string
+          description: URL to the call recording if recorded
+      required:
+      - id
+      - status
+      - direction
+      - from
+      - to
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

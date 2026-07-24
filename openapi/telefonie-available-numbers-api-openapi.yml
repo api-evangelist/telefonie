@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Telefonie Number Management Available Numbers API
+  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  version: v1
+  contact:
+    name: Telefonie Support
+    url: https://www.telefonie.com/support
+  termsOfService: https://www.telefonie.com/terms
+servers:
+- url: https://api.telefonie.com/v1/numbers
+  description: Telefonie Number Management API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Available Numbers
+  description: Search for phone numbers to purchase
+paths:
+  /available:
+    get:
+      operationId: searchAvailableNumbers
+      summary: Search Available Numbers
+      description: Search for available phone numbers matching specified criteria.
+      tags:
+      - Available Numbers
+      parameters:
+      - name: country_code
+        in: query
+        required: true
+        schema:
+          type: string
+        description: ISO 3166-1 alpha-2 country code (e.g., US, GB, DE)
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - local
+          - national
+          - toll-free
+          - mobile
+        description: Type of phone number
+      - name: area_code
+        in: query
+        schema:
+          type: string
+        description: Desired area code for local numbers
+      - name: contains
+        in: query
+        schema:
+          type: string
+        description: Pattern to match in the number (digits only)
+      - name: sms_enabled
+        in: query
+        schema:
+          type: boolean
+        description: Filter to numbers with SMS capability
+      - name: voice_enabled
+        in: query
+        schema:
+          type: boolean
+        description: Filter to numbers with voice capability
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          maximum: 20
+        description: Maximum number of results to return
+      responses:
+        '200':
+          description: List of available numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  available_numbers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AvailableNumber'
+components:
+  schemas:
+    AvailableNumber:
+      type: object
+      properties:
+        phone_number:
+          type: string
+          description: Phone number in E.164 format
+        friendly_name:
+          type: string
+          description: Formatted phone number for display
+        country_code:
+          type: string
+          description: ISO country code
+        type:
+          type: string
+          enum:
+          - local
+          - national
+          - toll-free
+          - mobile
+          description: Number type
+        capabilities:
+          type: object
+          properties:
+            voice:
+              type: boolean
+            sms:
+              type: boolean
+            mms:
+              type: boolean
+          description: Supported capabilities for this number
+        monthly_rate:
+          type: string
+          description: Monthly cost for this number
+      required:
+      - phone_number
+      - country_code
+      - type
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

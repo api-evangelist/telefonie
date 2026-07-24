@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: Telefonie Number Management Available Numbers Conferences API
+  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  version: v1
+  contact:
+    name: Telefonie Support
+    url: https://www.telefonie.com/support
+  termsOfService: https://www.telefonie.com/terms
+servers:
+- url: https://api.telefonie.com/v1/numbers
+  description: Telefonie Number Management API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Conferences
+  description: Multi-party conferencing
+paths:
+  /conferences:
+    get:
+      operationId: listConferences
+      summary: List Conferences
+      description: List all active and completed conference calls.
+      tags:
+      - Conferences
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - init
+          - in-progress
+          - completed
+        description: Filter by conference status
+      responses:
+        '200':
+          description: List of conferences
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conferences:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Conference'
+    post:
+      operationId: createConference
+      summary: Create Conference
+      description: Create a new conference room.
+      tags:
+      - Conferences
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friendly_name:
+                  type: string
+                  description: A human-readable name for the conference
+                max_participants:
+                  type: integer
+                  description: Maximum number of participants allowed
+                  default: 250
+                record:
+                  type: boolean
+                  description: Record the conference automatically
+                status_callback:
+                  type: string
+                  description: URL to receive conference events
+      responses:
+        '201':
+          description: Conference created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Conference'
+  /conferences/{conference_id}/participants:
+    get:
+      operationId: listConferenceParticipants
+      summary: List Conference Participants
+      description: List all participants currently in a conference.
+      tags:
+      - Conferences
+      parameters:
+      - name: conference_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier for the conference
+      responses:
+        '200':
+          description: List of participants
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  participants:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Participant'
+    post:
+      operationId: addConferenceParticipant
+      summary: Add Conference Participant
+      description: Dial out and add a participant to an existing conference.
+      tags:
+      - Conferences
+      parameters:
+      - name: conference_id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier for the conference
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - to
+              - from
+              properties:
+                to:
+                  type: string
+                  description: Phone number to dial into the conference
+                from:
+                  type: string
+                  description: Caller ID to use for the outbound dial
+                muted:
+                  type: boolean
+                  description: Whether to mute the participant upon joining
+      responses:
+        '201':
+          description: Participant added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Participant'
+components:
+  schemas:
+    Participant:
+      type: object
+      properties:
+        call_id:
+          type: string
+          description: Call ID for this participant's connection
+        conference_id:
+          type: string
+          description: Conference the participant is in
+        muted:
+          type: boolean
+          description: Whether the participant is muted
+        hold:
+          type: boolean
+          description: Whether the participant is on hold
+        status:
+          type: string
+          description: Participant connection status
+      required:
+      - call_id
+      - conference_id
+    Conference:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the conference
+        friendly_name:
+          type: string
+          description: Human-readable name for the conference
+        status:
+          type: string
+          enum:
+          - init
+          - in-progress
+          - completed
+          description: Current status of the conference
+        participant_count:
+          type: integer
+          description: Number of current participants
+        max_participants:
+          type: integer
+          description: Maximum allowed participants
+        date_created:
+          type: string
+          format: date-time
+          description: When the conference was created
+      required:
+      - id
+      - status
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
