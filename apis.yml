@@ -4,6 +4,19 @@ description: >-
   for developers and businesses. The platform enables developers to build voice calling, SMS messaging, number
   provisioning, and call recording capabilities into their applications. Telefonie supports WebRTC, SIP trunking, and
   REST APIs for building modern communication workflows.
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.telefonie.com/logo.png
 url: https://www.telefonie.com
 type: Index
@@ -20,128 +33,201 @@ tags:
 created: '2024-01-20'
 modified: '2026-05-19'
 apis:
-  - name: Telefonie Voice API
-    description: >-
-      Make, receive, and control phone calls programmatically. Supports outbound dialing, inbound call handling, call
-      routing, IVR (Interactive Voice Response), call transfer, conferencing, and real-time call control via REST and
-      WebSockets.
-    image: https://www.telefonie.com/images/voice-api.png
-    humanURL: https://developers.telefonie.com/voice
-    baseURL: https://api.telefonie.com/v1/voice
-    tags:
-      - Calls
-      - Conferencing
-      - IVR
-      - Outbound Calling
-      - Telephony
-      - Voice
-      - VoIP
-      - WebRTC
-    properties:
-      - type: Documentation
-        url: https://developers.telefonie.com/voice
-      - type: OpenAPI
-        url: openapi/telefonie-voice-openapi.yml
-      - type: Authentication
-        url: https://developers.telefonie.com/authentication
-      - type: GettingStarted
-        url: https://developers.telefonie.com/getting-started
-      - type: Pricing
-        url: https://www.telefonie.com/pricing/voice
-      - type: RateLimits
-        url: https://developers.telefonie.com/rate-limits
-    contact:
-      - type: Support
-        url: https://www.telefonie.com/support
-      - type: Email
-        url: mailto:support@telefonie.com
-  - name: Telefonie SMS API
-    description: >-
-      Send and receive SMS and MMS messages globally. Supports one-way notifications, two-way conversations, bulk
-      messaging, unicode (international character sets), delivery receipts, inbound message webhooks, and long message
-      concatenation.
-    image: https://www.telefonie.com/images/sms-api.png
-    humanURL: https://developers.telefonie.com/sms
-    baseURL: https://api.telefonie.com/v1/sms
-    tags:
-      - Bulk SMS
-      - Delivery Receipts
-      - Messaging
-      - MMS
-      - SMS
-      - Text Messages
-      - Two-Way Messaging
-    properties:
-      - type: Documentation
-        url: https://developers.telefonie.com/sms
-      - type: OpenAPI
-        url: openapi/telefonie-sms-openapi.yml
-      - type: Authentication
-        url: https://developers.telefonie.com/authentication
-      - type: Pricing
-        url: https://www.telefonie.com/pricing/sms
-      - type: RateLimits
-        url: https://developers.telefonie.com/rate-limits
-    contact:
-      - type: Support
-        url: https://www.telefonie.com/support
-      - type: Email
-        url: mailto:support@telefonie.com
-  - name: Telefonie Number Management API
-    description: >-
-      Search, purchase, configure, and manage phone numbers across multiple countries and number types (local, national,
-      toll-free, mobile). Supports number portability (LNP), number lookup, capabilities checking, and configuring
-      inbound call/SMS routing for numbers.
-    image: https://www.telefonie.com/images/numbers-api.png
-    humanURL: https://developers.telefonie.com/numbers
-    baseURL: https://api.telefonie.com/v1/numbers
-    tags:
-      - DID
-      - LNP
-      - Number Portability
-      - Number Provisioning
-      - Phone Numbers
-      - Toll-Free
-    properties:
-      - type: Documentation
-        url: https://developers.telefonie.com/numbers
-      - type: OpenAPI
-        url: openapi/telefonie-numbers-openapi.yml
-      - type: Authentication
-        url: https://developers.telefonie.com/authentication
-      - type: Pricing
-        url: https://www.telefonie.com/pricing/numbers
-    contact:
-      - type: Support
-        url: https://www.telefonie.com/support
-  - name: Telefonie Call Recording API
-    description: >-
-      Record, store, and retrieve call recordings. Supports dual-channel recording, on-demand recording, automatic
-      recording, transcription, storage management, compliance archiving, and secure download URLs. Recordings are
-      stored in MP3 and WAV formats with configurable retention policies.
-    image: https://www.telefonie.com/images/recording-api.png
-    humanURL: https://developers.telefonie.com/recording
-    baseURL: https://api.telefonie.com/v1/recordings
-    tags:
-      - Archiving
-      - Compliance
-      - Dual Channel
-      - Recording
-      - Storage
-      - Transcription
-    properties:
-      - type: Documentation
-        url: https://developers.telefonie.com/recording
-      - type: OpenAPI
-        url: openapi/telefonie-recording-openapi.yml
-      - type: Authentication
-        url: https://developers.telefonie.com/authentication
-      - type: Pricing
-        url: https://www.telefonie.com/pricing/recording
-    contact:
-      - type: Support
-        url: https://www.telefonie.com/support
+- aid: telefonie:telefonie-available-numbers-api
+  name: Telefonie Available Numbers API
+  description: Search for phone numbers to purchase
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Available Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-available-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
+- aid: telefonie:telefonie-calls-api
+  name: Telefonie Calls API
+  description: Make and manage voice calls
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-calls-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
+- aid: telefonie:telefonie-conferences-api
+  name: Telefonie Conferences API
+  description: Multi-party conferencing
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Conferences
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-conferences-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
+- aid: telefonie:telefonie-messages-api
+  name: Telefonie Messages API
+  description: Send and receive SMS/MMS messages
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-messages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
+- aid: telefonie:telefonie-owned-numbers-api
+  name: Telefonie Owned Numbers API
+  description: Manage phone numbers in your account
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Owned Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-owned-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
+- aid: telefonie:telefonie-recordings-api
+  name: Telefonie Recordings API
+  description: Manage call recordings
+  humanURL: https://developers.telefonie.com/voice
+  baseURL: https://api.telefonie.com/v1/voice
+  tags:
+  - Recordings
+  properties:
+  - type: OpenAPI
+    url: openapi/telefonie-recordings-api-openapi.yml
+  - type: Documentation
+    url: https://developers.telefonie.com/voice
+  - type: Authentication
+    url: https://developers.telefonie.com/authentication
+  - type: GettingStarted
+    url: https://developers.telefonie.com/getting-started
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/voice
+  - type: RateLimits
+    url: https://developers.telefonie.com/rate-limits
+  - type: Documentation
+    url: https://developers.telefonie.com/sms
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/sms
+  - type: Documentation
+    url: https://developers.telefonie.com/numbers
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/numbers
+  - type: Documentation
+    url: https://developers.telefonie.com/recording
+  - type: Pricing
+    url: https://www.telefonie.com/pricing/recording
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/telefonie/overview
   - type: AgenticAccess
     url: agentic-access/telefonie-agentic-access.yml
   - type: Authentication
