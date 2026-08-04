@@ -1,0 +1,497 @@
+{
+  "info": {
+    "_postman_id": "331510ac-441e-4a2e-b3a6-09a9ccb9a210",
+    "name": "Telefonie Number Management Available Numbers Messages API",
+    "description": "Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.\n\nContact Support:\n Name: Telefonie Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:08:59.000Z",
+    "updatedAt": "2026-07-28T03:08:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-331510ac-441e-4a2e-b3a6-09a9ccb9a210"
+  },
+  "item": [
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "{message_id}",
+          "item": [
+            {
+              "name": "Get Message",
+              "id": "3cd332cd-5af5-448c-b472-458f839ac612",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:message_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":message_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c6edbf01-a316-4b1a-beb3-2e2dd9e20f29",
+                      "key": "message_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the message"
+                    }
+                  ]
+                },
+                "description": "Retrieve details about a specific message."
+              },
+              "response": [
+                {
+                  "id": "8a53ca67-f7b4-4478-a34c-9da488ab4a69",
+                  "name": "Message details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:message_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":message_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "message_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"receiving\",\n  \"direction\": \"inbound\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"body\": \"<string>\",\n  \"num_segments\": \"<integer>\",\n  \"num_media\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"price_unit\": \"<string>\",\n  \"date_created\": \"<dateTime>\",\n  \"date_sent\": \"<dateTime>\",\n  \"date_updated\": \"<dateTime>\",\n  \"error_code\": \"<integer>\",\n  \"error_message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T03:08:59.000Z",
+                  "updatedAt": "2026-07-28T03:08:59.000Z",
+                  "uid": "35240-8a53ca67-f7b4-4478-a34c-9da488ab4a69"
+                },
+                {
+                  "id": "4eb57dd2-f124-41c5-80f3-fbf5cb42d0e4",
+                  "name": "Message not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:message_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":message_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "message_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:08:59.000Z",
+                  "updatedAt": "2026-07-28T03:08:59.000Z",
+                  "uid": "35240-4eb57dd2-f124-41c5-80f3-fbf5cb42d0e4"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:59.000Z",
+              "updatedAt": "2026-07-28T03:08:59.000Z",
+              "uid": "35240-3cd332cd-5af5-448c-b472-458f839ac612"
+            },
+            {
+              "name": "Delete Message",
+              "id": "a97ecb34-132d-4e16-9068-c5bcab7a1136",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:message_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":message_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "79d9bdf6-a325-4ca9-be0a-af7a879f149c",
+                      "key": "message_id",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the message"
+                    }
+                  ]
+                },
+                "description": "Delete a message record from your account."
+              },
+              "response": [
+                {
+                  "id": "4ad9d0c8-580c-4a5a-ba0b-91f2def77ece",
+                  "name": "Message deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "X-API-Key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:message_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":message_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "message_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:08:59.000Z",
+                  "updatedAt": "2026-07-28T03:08:59.000Z",
+                  "uid": "35240-4ad9d0c8-580c-4a5a-ba0b-91f2def77ece"
+                }
+              ],
+              "createdAt": "2026-07-28T03:08:59.000Z",
+              "updatedAt": "2026-07-28T03:08:59.000Z",
+              "uid": "35240-a97ecb34-132d-4e16-9068-c5bcab7a1136"
+            }
+          ],
+          "id": "1ebbb390-a53d-4fc3-8c00-bbf373c9b013",
+          "createdAt": "2026-07-28T03:08:59.000Z",
+          "updatedAt": "2026-07-28T03:08:59.000Z",
+          "uid": "35240-1ebbb390-a53d-4fc3-8c00-bbf373c9b013"
+        },
+        {
+          "name": "List Messages",
+          "id": "2efff3f6-dea8-43e7-8ff7-5004077463c2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/messages?direction=outbound&status=undelivered&from=<string>&to=<string>&page=<integer>&page_size=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ],
+              "query": [
+                {
+                  "description": "Filter by message direction",
+                  "key": "direction",
+                  "value": "outbound"
+                },
+                {
+                  "description": "Filter by message status",
+                  "key": "status",
+                  "value": "undelivered"
+                },
+                {
+                  "description": "Filter messages from this number",
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter messages to this number",
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Results per page",
+                  "key": "page_size",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of sent and received messages with optional filters."
+          },
+          "response": [
+            {
+              "id": "20884c5d-b906-4973-a852-d85534164304",
+              "name": "List of messages",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?direction=outbound&status=undelivered&from=<string>&to=<string>&page=<integer>&page_size=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by message direction",
+                      "key": "direction",
+                      "value": "outbound"
+                    },
+                    {
+                      "description": "Filter by message status",
+                      "key": "status",
+                      "value": "undelivered"
+                    },
+                    {
+                      "description": "Filter messages from this number",
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter messages to this number",
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Results per page",
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"receiving\",\n      \"direction\": \"inbound\",\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"body\": \"<string>\",\n      \"num_segments\": \"<integer>\",\n      \"num_media\": \"<integer>\",\n      \"price\": \"<string>\",\n      \"price_unit\": \"<string>\",\n      \"date_created\": \"<dateTime>\",\n      \"date_sent\": \"<dateTime>\",\n      \"date_updated\": \"<dateTime>\",\n      \"error_code\": \"<integer>\",\n      \"error_message\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"undelivered\",\n      \"direction\": \"inbound\",\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"body\": \"<string>\",\n      \"num_segments\": \"<integer>\",\n      \"num_media\": \"<integer>\",\n      \"price\": \"<string>\",\n      \"price_unit\": \"<string>\",\n      \"date_created\": \"<dateTime>\",\n      \"date_sent\": \"<dateTime>\",\n      \"date_updated\": \"<dateTime>\",\n      \"error_code\": \"<integer>\",\n      \"error_message\": \"<string>\"\n    }\n  ],\n  \"total\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T03:08:59.000Z",
+              "updatedAt": "2026-07-28T03:08:59.000Z",
+              "uid": "35240-20884c5d-b906-4973-a852-d85534164304"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:59.000Z",
+          "updatedAt": "2026-07-28T03:08:59.000Z",
+          "uid": "35240-2efff3f6-dea8-43e7-8ff7-5004077463c2"
+        },
+        {
+          "name": "Send Message",
+          "id": "f8ec8bd1-9663-49da-9eed-faaffbcd7be0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"body\": \"<string>\",\n  \"media_url\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_callback\": \"<string>\",\n  \"validity_period\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            },
+            "description": "Send an SMS or MMS message to a phone number."
+          },
+          "response": [
+            {
+              "id": "8c524509-47a1-42db-8e58-928f7570e5a6",
+              "name": "Message sent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"<string>\",\n  \"from\": \"<string>\",\n  \"body\": \"<string>\",\n  \"media_url\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status_callback\": \"<string>\",\n  \"validity_period\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"receiving\",\n  \"direction\": \"inbound\",\n  \"from\": \"<string>\",\n  \"to\": \"<string>\",\n  \"body\": \"<string>\",\n  \"num_segments\": \"<integer>\",\n  \"num_media\": \"<integer>\",\n  \"price\": \"<string>\",\n  \"price_unit\": \"<string>\",\n  \"date_created\": \"<dateTime>\",\n  \"date_sent\": \"<dateTime>\",\n  \"date_updated\": \"<dateTime>\",\n  \"error_code\": \"<integer>\",\n  \"error_message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T03:08:59.000Z",
+              "updatedAt": "2026-07-28T03:08:59.000Z",
+              "uid": "35240-8c524509-47a1-42db-8e58-928f7570e5a6"
+            }
+          ],
+          "createdAt": "2026-07-28T03:08:59.000Z",
+          "updatedAt": "2026-07-28T03:08:59.000Z",
+          "uid": "35240-f8ec8bd1-9663-49da-9eed-faaffbcd7be0"
+        }
+      ],
+      "id": "5c6c4442-2fb9-40ca-b1c9-fe31ea3e6b40",
+      "createdAt": "2026-07-28T03:08:59.000Z",
+      "updatedAt": "2026-07-28T03:08:59.000Z",
+      "uid": "35240-5c6c4442-2fb9-40ca-b1c9-fe31ea3e6b40"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.telefonie.com/v1/numbers"
+    }
+  ]
+}

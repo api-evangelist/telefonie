@@ -1,0 +1,226 @@
+openapi: 3.0.3
+info:
+  title: Telefonie SMS API
+  description: >-
+    Send and receive SMS and MMS messages globally. Supports one-way notifications,
+    two-way conversations, bulk messaging, delivery receipts, and inbound webhooks.
+  version: 'v1'
+  contact:
+    name: Telefonie Support
+    url: https://www.telefonie.com/support
+    email: support@telefonie.com
+  termsOfService: https://www.telefonie.com/terms
+servers:
+  - url: https://api.telefonie.com/v1/sms
+    description: Telefonie SMS API
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Messages
+    description: Send and receive SMS/MMS messages
+  - name: Inbound
+    description: Manage inbound message configuration
+paths:
+  /messages:
+    get:
+      operationId: listMessages
+      summary: List Messages
+      description: Retrieve a list of sent and received messages with optional filters.
+      tags:
+        - Messages
+      parameters:
+        - name: direction
+          in: query
+          schema:
+            type: string
+            enum: [inbound, outbound]
+          description: Filter by message direction
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [queued, sending, sent, delivered, undelivered, failed, receiving, received]
+          description: Filter by message status
+        - name: from
+          in: query
+          schema:
+            type: string
+          description: Filter messages from this number
+        - name: to
+          in: query
+          schema:
+            type: string
+          description: Filter messages to this number
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Page number
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            maximum: 100
+          description: Results per page
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+                  total:
+                    type: integer
+    post:
+      operationId: sendMessage
+      summary: Send Message
+      description: Send an SMS or MMS message to a phone number.
+      tags:
+        - Messages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - to
+                - from
+              properties:
+                to:
+                  type: string
+                  description: Recipient phone number in E.164 format
+                from:
+                  type: string
+                  description: Sender phone number (must be owned by you)
+                body:
+                  type: string
+                  description: Text of the message (required if no media_url)
+                media_url:
+                  type: array
+                  items:
+                    type: string
+                  description: URLs of media to include (MMS)
+                status_callback:
+                  type: string
+                  description: URL to receive delivery status webhooks
+                validity_period:
+                  type: integer
+                  description: How long in seconds the message is valid for delivery
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+  /messages/{message_id}:
+    get:
+      operationId: getMessage
+      summary: Get Message
+      description: Retrieve details about a specific message.
+      tags:
+        - Messages
+      parameters:
+        - name: message_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the message
+      responses:
+        '200':
+          description: Message details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Message not found
+    delete:
+      operationId: deleteMessage
+      summary: Delete Message
+      description: Delete a message record from your account.
+      tags:
+        - Messages
+      parameters:
+        - name: message_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the message
+      responses:
+        '204':
+          description: Message deleted
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the message
+        status:
+          type: string
+          enum: [queued, sending, sent, delivered, undelivered, failed, receiving, received]
+          description: Current delivery status
+        direction:
+          type: string
+          enum: [inbound, outbound]
+          description: Message direction
+        from:
+          type: string
+          description: Sender phone number
+        to:
+          type: string
+          description: Recipient phone number
+        body:
+          type: string
+          description: Message body text
+        num_segments:
+          type: integer
+          description: Number of SMS segments used
+        num_media:
+          type: integer
+          description: Number of media files attached
+        price:
+          type: string
+          description: Cost of sending the message
+        price_unit:
+          type: string
+          description: Currency for the price
+        date_created:
+          type: string
+          format: date-time
+          description: When the message was created
+        date_sent:
+          type: string
+          format: date-time
+          description: When the message was dispatched
+        date_updated:
+          type: string
+          format: date-time
+          description: When the message record was last updated
+        error_code:
+          type: integer
+          description: Error code if message failed
+        error_message:
+          type: string
+          description: Error description if message failed
+      required:
+        - id
+        - status
+        - direction
+        - from
+        - to

@@ -1,0 +1,24 @@
+{
+  "provider": "telefonie",
+  "sources": [
+    "telefonie-available-numbers-api-openapi.yml",
+    "telefonie-calls-api-openapi.yml",
+    "telefonie-conferences-api-openapi.yml",
+    "telefonie-messages-api-openapi.yml",
+    "telefonie-owned-numbers-api-openapi.yml",
+    "telefonie-recordings-api-openapi.yml"
+  ],
+  "outputs": [
+    "telefonie-available-numbers-api-openapi.yml",
+    "telefonie-calls-api-openapi.yml",
+    "telefonie-conferences-api-openapi.yml",
+    "telefonie-messages-api-openapi.yml",
+    "telefonie-owned-numbers-api-openapi.yml",
+    "telefonie-recordings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
