@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "73755d5f-98ce-451f-af9e-834f366114c8",
+      "name": "Available Numbers",
+      "description": {
+        "content": "Search for phone numbers to purchase",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a14ab0e9-f15f-40cc-a733-73dbfbe462f9",
+          "name": "Search Available Numbers",
+          "request": {
+            "name": "Search Available Numbers",
+            "description": {
+              "content": "Search for available phone numbers matching specified criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "available"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "(Required) ISO 3166-1 alpha-2 country code (e.g., US, GB, DE)"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type of phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "area_code",
+                  "value": "<string>",
+                  "description": "Desired area code for local numbers"
+                },
+                {
+                  "disabled": false,
+                  "key": "contains",
+                  "value": "<string>",
+                  "description": "Pattern to match in the number (digits only)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sms_enabled",
+                  "value": "<boolean>",
+                  "description": "Filter to numbers with SMS capability"
+                },
+                {
+                  "disabled": false,
+                  "key": "voice_enabled",
+                  "value": "<boolean>",
+                  "description": "Filter to numbers with voice capability"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6abbaa60-b027-4f7f-9c32-3438ceda2fb1",
+              "name": "List of available numbers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "available"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "country_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "area_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sms_enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "voice_enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_numbers\": [\n    {\n      \"phone_number\": \"string\",\n      \"country_code\": \"string\",\n      \"type\": \"mobile\",\n      \"friendly_name\": \"string\",\n      \"capabilities\": {\n        \"voice\": true,\n        \"sms\": true,\n        \"mms\": true\n      },\n      \"monthly_rate\": \"string\"\n    },\n    {\n      \"phone_number\": \"string\",\n      \"country_code\": \"string\",\n      \"type\": \"local\",\n      \"friendly_name\": \"string\",\n      \"capabilities\": {\n        \"voice\": true,\n        \"sms\": true,\n        \"mms\": true\n      },\n      \"monthly_rate\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telefonie.com/v1/numbers",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "707826b7-055b-4bf5-a470-b6b15a09dafe",
+    "name": "Telefonie Number Management Available Numbers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.\n\nContact Support:\n Name: Telefonie Support",
+      "type": "text/plain"
+    }
+  }
+}

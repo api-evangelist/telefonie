@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Telefonie Number Management Available Numbers Calls API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/numbers/calls",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by call status"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by call direction"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter calls from this phone number"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter calls to this phone number"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of calls with optional filtering by status, direction, or date range."
+        },
+        {
+          "info": {
+            "name": "Initiate Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telefonie.com/v1/numbers/calls",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate an outbound phone call to a specified number."
+        },
+        {
+          "info": {
+            "name": "Get Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/numbers/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the call"
+              }
+            ]
+          },
+          "docs": "Retrieve details about a specific call by its ID."
+        },
+        {
+          "info": {
+            "name": "Update Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.telefonie.com/v1/numbers/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the call"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify an in-progress call — mute, hold, transfer, or redirect to a new URL."
+        },
+        {
+          "info": {
+            "name": "End Call",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.telefonie.com/v1/numbers/calls/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the call"
+              }
+            ]
+          },
+          "docs": "Hang up an in-progress or ringing call."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Telefonie Number Management Available Numbers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Available Numbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Available Numbers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.telefonie.com/v1/numbers/available",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "ISO 3166-1 alpha-2 country code (e.g., US, GB, DE)"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type of phone number"
+              },
+              {
+                "name": "area_code",
+                "value": "",
+                "type": "query",
+                "description": "Desired area code for local numbers"
+              },
+              {
+                "name": "contains",
+                "value": "",
+                "type": "query",
+                "description": "Pattern to match in the number (digits only)"
+              },
+              {
+                "name": "sms_enabled",
+                "value": "",
+                "type": "query",
+                "description": "Filter to numbers with SMS capability"
+              },
+              {
+                "name": "voice_enabled",
+                "value": "",
+                "type": "query",
+                "description": "Filter to numbers with voice capability"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              }
+            ]
+          },
+          "docs": "Search for available phone numbers matching specified criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

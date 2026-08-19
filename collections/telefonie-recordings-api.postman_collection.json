@@ -1,0 +1,399 @@
+{
+  "item": [
+    {
+      "id": "6eb61db6-c61d-4d89-9d2e-7b74d9da823a",
+      "name": "Recordings",
+      "description": {
+        "content": "Manage call recordings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7be0d02-5228-4eef-ae9d-16838b138931",
+          "name": "List Recordings",
+          "request": {
+            "name": "List Recordings",
+            "description": {
+              "content": "Retrieve a list of call recordings in your account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "call_id",
+                  "value": "<string>",
+                  "description": "Filter recordings by call ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by recording status"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Results per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c90657a0-4813-49fe-b064-ba3571628057",
+              "name": "List of recordings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "call_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recordings\": [\n    {\n      \"id\": \"string\",\n      \"call_id\": \"string\",\n      \"status\": \"in-progress\",\n      \"duration\": 1362,\n      \"channels\": 1,\n      \"source\": \"string\",\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"media_url\": \"string\",\n      \"date_created\": \"1987-11-09T14:54:49.097Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"call_id\": \"string\",\n      \"status\": \"completed\",\n      \"duration\": 8191,\n      \"channels\": 2,\n      \"source\": \"string\",\n      \"price\": \"string\",\n      \"price_unit\": \"string\",\n      \"media_url\": \"string\",\n      \"date_created\": \"2009-07-07T12:08:43.401Z\"\n    }\n  ],\n  \"total\": 5320\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8af2cfb8-dfca-4868-9320-1a885ab80891",
+          "name": "Get Recording",
+          "request": {
+            "name": "Get Recording",
+            "description": {
+              "content": "Retrieve details and download URL for a specific recording.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings",
+                ":recording_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recording_id",
+                  "description": "(Required) Unique identifier for the recording"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "955c864d-3878-4e6d-ab42-4fdeaf7d2f7c",
+              "name": "Recording details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recording_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recording_id",
+                      "description": "(Required) Unique identifier for the recording"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"call_id\": \"string\",\n  \"status\": \"failed\",\n  \"duration\": 3648,\n  \"channels\": 1,\n  \"source\": \"string\",\n  \"price\": \"string\",\n  \"price_unit\": \"string\",\n  \"media_url\": \"string\",\n  \"date_created\": \"1987-04-08T05:11:23.620Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b96dcf43-cc84-4f48-a83b-85f34cafb067",
+              "name": "Recording not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recording_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recording_id",
+                      "description": "(Required) Unique identifier for the recording"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ed2496d-90b3-4a6f-aa4c-09742ab6ab2d",
+          "name": "Delete Recording",
+          "request": {
+            "name": "Delete Recording",
+            "description": {
+              "content": "Permanently delete a call recording.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings",
+                ":recording_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recording_id",
+                  "description": "(Required) Unique identifier for the recording"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e701425e-9a80-4d28-bb8f-b8f9712f210e",
+              "name": "Recording deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recording_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recording_id",
+                      "description": "(Required) Unique identifier for the recording"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.telefonie.com/v1/numbers",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d6879b0-4c38-4d0c-888d-05ef236b40ae",
+    "name": "Telefonie Number Management Available Numbers Recordings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.\n\nContact Support:\n Name: Telefonie Support",
+      "type": "text/plain"
+    }
+  }
+}
