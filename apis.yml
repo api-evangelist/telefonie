@@ -241,6 +241,9 @@ apis:
   - type: Pricing
     url: https://www.telefonie.com/pricing/recording
 common:
+  - type: CapabilityMap
+    url: capabilities/telefonie-capability-edges.yml
+    name: Telefonie Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/telefonie/overview
   - type: AgenticAccess
