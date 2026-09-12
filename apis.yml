@@ -241,6 +241,8 @@ apis:
   - type: Pricing
     url: https://www.telefonie.com/pricing/recording
 common:
+  - type: Website
+    url: https://www.telefonie.com/
   - type: CapabilityMap
     url: capabilities/telefonie-capability-edges.yml
     name: Telefonie Business Capability Map
