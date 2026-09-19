@@ -214,6 +214,8 @@ apis:
   humanURL: https://developers.telefonie.com/voice
   baseURL: https://api.telefonie.com/v1/voice
   tags:
+  - Recording
+  tags_raw:
   - Recordings
   properties:
   - type: OpenAPI
