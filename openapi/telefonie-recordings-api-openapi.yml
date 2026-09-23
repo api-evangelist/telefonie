@@ -1,15 +1,15 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Telefonie Number Management Available Numbers Recordings API
-  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  title: Telefonie Call Recording Recordings API
+  description: Record, store, and retrieve call recordings. Supports dual-channel recording, transcription, compliance archiving, and secure download URLs.
   version: v1
   contact:
     name: Telefonie Support
     url: https://www.telefonie.com/support
   termsOfService: https://www.telefonie.com/terms
 servers:
-- url: https://api.telefonie.com/v1/numbers
-  description: Telefonie Number Management API
+- url: https://api.telefonie.com/v1/recordings
+  description: Telefonie Recording API
 security:
 - ApiKeyAuth: []
 tags:

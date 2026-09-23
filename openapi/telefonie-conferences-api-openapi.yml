@@ -1,15 +1,16 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Telefonie Number Management Available Numbers Conferences API
-  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  title: Telefonie Voice Conferences API
+  description: Make, receive, and control phone calls programmatically. Supports outbound dialing, inbound call handling, IVR, conferencing, call transfer, and real-time call control.
   version: v1
   contact:
     name: Telefonie Support
     url: https://www.telefonie.com/support
+    email: support@telefonie.com
   termsOfService: https://www.telefonie.com/terms
 servers:
-- url: https://api.telefonie.com/v1/numbers
-  description: Telefonie Number Management API
+- url: https://api.telefonie.com/v1/voice
+  description: Telefonie Voice API
 security:
 - ApiKeyAuth: []
 tags:
@@ -144,27 +145,6 @@ paths:
                 $ref: '#/components/schemas/Participant'
 components:
   schemas:
-    Participant:
-      type: object
-      properties:
-        call_id:
-          type: string
-          description: Call ID for this participant's connection
-        conference_id:
-          type: string
-          description: Conference the participant is in
-        muted:
-          type: boolean
-          description: Whether the participant is muted
-        hold:
-          type: boolean
-          description: Whether the participant is on hold
-        status:
-          type: string
-          description: Participant connection status
-      required:
-      - call_id
-      - conference_id
     Conference:
       type: object
       properties:
@@ -194,6 +174,27 @@ components:
       required:
       - id
       - status
+    Participant:
+      type: object
+      properties:
+        call_id:
+          type: string
+          description: Call ID for this participant's connection
+        conference_id:
+          type: string
+          description: Conference the participant is in
+        muted:
+          type: boolean
+          description: Whether the participant is muted
+        hold:
+          type: boolean
+          description: Whether the participant is on hold
+        status:
+          type: string
+          description: Participant connection status
+      required:
+      - call_id
+      - conference_id
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

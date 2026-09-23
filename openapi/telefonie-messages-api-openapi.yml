@@ -1,15 +1,16 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Telefonie Number Management Available Numbers Messages API
-  description: Search, purchase, configure, and manage phone numbers. Supports local, national, toll-free, and mobile numbers across multiple countries with full lifecycle management.
+  title: Telefonie SMS Messages API
+  description: Send and receive SMS and MMS messages globally. Supports one-way notifications, two-way conversations, bulk messaging, delivery receipts, and inbound webhooks.
   version: v1
   contact:
     name: Telefonie Support
     url: https://www.telefonie.com/support
+    email: support@telefonie.com
   termsOfService: https://www.telefonie.com/terms
 servers:
-- url: https://api.telefonie.com/v1/numbers
-  description: Telefonie Number Management API
+- url: https://api.telefonie.com/v1/sms
+  description: Telefonie SMS API
 security:
 - ApiKeyAuth: []
 tags:
